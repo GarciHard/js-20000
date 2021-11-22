@@ -1,34 +1,40 @@
-/** Clase 1 **/
+/** Clase 2 **/
 
 /* 
     * Consigna * 
-    Crea un script en JS que le solicite al usuario ingresar uno o más datos.
-    Luego, con JavaScript, realiza operaciones matemáticas o de concatenación sobre las entradas teniendo en cuenta el tipo de dato.
-    Al finalizar mostrar el resultados con alert() o console.log()
+    Crea un algoritmo que solicite al usuario uno o más valores ingresados por prompt(),
+    compare las entradas y, en función de ciertas condiciones, muestre por consola o alert()
+    el resultado según los valores ingresados y las condiciones cumplidas.
 */
 
-nombre = prompt('Ingresa tu nombre');
+let nombre = prompt('Ingresa tu nombre');
 
-if (!nombre) {
-
-    alert('No ingresó el dato requerido, saliendo...');
-
-} else {
-
-    // Transformamos a mayúsculas.
+if (nombre != null) {
     nombre = nombre.toUpperCase();
 
-    // Salida personalizada con CSS, genera un texto grande con letra gruesa.
-    console.log("%c Hola %s, esta es la primer clase de JS", 'font-size: 36px; font-weight: bold', nombre);
+    alert(`${nombre} vamos a evaluar el mayor de dos números...`)
 
-    // Concatenamos el nombre con un texto para desplegar en un alert.
-    alert(nombre + ' ¡Vamos a sumar números enteros!');
+    let numA = parseInt(prompt('Ingresa un número entero'));
 
-    // Parseamos la entrada de números enteros.
-    numA = parseInt(prompt("Ingresa el primer número"));
-    numB = parseInt(prompt("Ingresa el segundo número"));
+    if (numA <= 0 || isNaN(numA)) {
+        alert('Debe ingresar un número positivo, mayor a cero, saliendo...');
+    } else {
+        let numB = parseInt(prompt('Ingresa un número entero'));
 
-    console.log("%s la suma de los números enteros %i + %i es: %i", nombre, numA, numB, numA+numB);
+        if (numB <= 0 || isNaN(numB)) {
+            alert('Debe ingresar un número positivo, mayor a cero, saliendo...');
 
-    alert('Hasta luego ' + nombre + '...');
+        } else {
+            if (numA === numB) {
+                alert(`El número ${numA} es igual que el número ${numB}...`);
+
+            } else {
+                alert(`El número ${numA > numB ? numA : numB} es mayor que el número ${numB < numA ? numB : numA} por ${numA > numB ? numA - numB : numB - numA} números...`);
+            }
+        }
+    }
+
+    alert('Hasta luego, ' + nombre);
+} else {
+    alert('Debe ingresar un nombre, saliendo...');
 }
