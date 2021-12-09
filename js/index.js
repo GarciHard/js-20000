@@ -1,17 +1,61 @@
-/** Clase 3 **/
+/** Clase 4 **/
+
+class User {
+    constructor(usr, pwd) {
+        this.usr = usr
+        this.pwd = btoa(pwd)
+    }
+
+    getUsr() {
+        return this.usr
+    }
+
+    getPwd() {
+        return this.pwd
+    }
+}
+
+class Client {
+    constructor(firstName, lastName, email) {
+        this.firstName = firstName
+        this.lastName = lastName
+        this.email = email
+    }
+
+    getClientName() {
+        return `${this.firstName.to} ${this.lastName}`
+    }
+
+    getClientMail() {
+        return this.email
+    }
+}
 
 // Se simula una persistencia básica de usuarios utilizando json.
 const jsonUsr = [
     {
-        "name" : "Alexis G.",
+        "employeeId" :  45046907,
         "usr" : "garcihard",
-        "pwd" : "xy!z13#"
+        "pwd" : "cDR6encwcmQxMw=="
     }
     ,
     {
-        "name" : "Daniela H.",
+        "employeeId" :  45046908,
         "usr" : "freckles",
-        "pwd" : "x!yz11$"
+        "pwd" : "cDQ1NXcwcmQxMQ=="
+    }
+]
+
+const jsonEmployee = [
+    {
+        "employeeId" :  45046907,
+        "name" : "Alexis",
+        "lastName" : "Garcia"
+    },
+    {
+        "employeeId" :  45046908,
+        "name" : "Daniela",
+        "lastName" : "Herrera"
     }
 ]
 
@@ -43,10 +87,10 @@ const investmentEstimate = (invest) => {
             "monthPeriod" : 12
         }
     ]
-    
-    for (let i = 0; i < estimatedYield.length; i++) {
-        yieldMsg += `\n${estimatedYield[i].monthPeriod} mes es: $${(invest * estimatedYield[i].yield).toFixed(2)}, con un rendimiento del ${(estimatedYield[i].yield * 100).toFixed(2)}%`
-    }
+
+    estimatedYield.map( (yieldObj) => {
+        yieldMsg += `\n${yieldObj.monthPeriod} mes es: $${(invest * yieldObj.yield).toFixed(2)}, con un rendimiento del ${(yieldObj.yield * 100).toFixed(2)}%`
+    })
 
     return yieldMsg
 }
@@ -60,10 +104,12 @@ let usr = ""
 let pwd = ""
 let option
 
-usr = prompt("Ingresa tu usuario: ")
-pwd = prompt("Ingresa tu contraseña: ")
+usr = prompt("Ingresa tu usuario: ").toLowerCase()
+pwd = prompt("Ingresa tu contraseña: ").toLowerCase()
 
-const response = validateLogin(usr, pwd)
+const userLogin =  new User(usr, pwd)
+
+const response = validateLogin(userLogin)
 
 if (!response.valid) {
     alert(response.msg)
@@ -78,10 +124,12 @@ if (!response.valid) {
             case 1:
                 console.log("Simulador de préstamo simple")
                 simulatePCredit()
+                alert(contactForm())
                 break
             case 2:
                 console.log("Simulador de inversión simple")
                 simulateInvestment()
+                alert(contactForm())
                 break
             case 0:
                 document.write(`¡Hasta Luego ${response.msg}!`)
@@ -97,16 +145,16 @@ if (!response.valid) {
  * Valida que exista el usuario, devuelve true
  * cuando los datos coinciden.
  */
-function validateLogin(usr, pwd) {
+function validateLogin(userObj) {
     let isValidUsr = { "valid" : false, "msg" : "¡Credenciales inválidas!" }
 
-    // Iteramos el json...
-    for (let k in jsonUsr) {
-        
-        // Validamos que sean iguales...
-        if ( jsonUsr[k].usr.toUpperCase() === usr.toUpperCase() 
-            && jsonUsr[k].pwd.toLowerCase() === pwd.toLowerCase() ) {
-            isValidUsr = { "valid" : true, "msg" : jsonUsr[k].name }
+    const usrObj = jsonUsr.find( user => (user.usr === userObj.getUsr() && user.pwd === userObj.getPwd()) )
+
+    if (usrObj !== undefined) {
+        const empObj = jsonEmployee.find( employee => usrObj.employeeId )
+
+        if (empObj !== undefined) {
+            isValidUsr = { "valid" : true, "msg" : `${empObj.name} ${empObj.lastName}` }
         }
     }
 
@@ -171,4 +219,32 @@ function simulateInvestment() {
             alert(investmentMsg)
         }
     }
+}
+
+function contactForm() {
+    const OK = 'y'
+    const NOK = 'n'
+    let contactMsg = `Gracias por utilizar el simulador de Xchel, Financial Services`
+
+    let contactOption = prompt("¿Desea iniciar un trámite con nosotros? (Y/n)").toLowerCase()
+
+    switch(contactOption) {
+        case OK:
+            let firstName =  prompt("Ingrese su nombre")
+            let lastName = prompt("Ingrese su apellido")
+            let email = prompt("Ingrese su correo electrónico")
+
+            const clientObj = new Client(firstName, lastName, email)
+
+            contactMsg = `Estimado ${clientObj.getClientName()}\n\nEn breve recibirá un correo en la dirección: ${clientObj.getClientMail()} con toda la información necesaria.\n\nGracias por utilizar Xchel, Financial Services`
+            break
+        case NOK:
+            return contactMsg
+            break
+            default:
+                noValidInput()
+                break
+    }
+
+    return contactMsg
 }
