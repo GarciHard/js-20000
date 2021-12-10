@@ -4,9 +4,185 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Xchel Financial Services</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
 </head>
+
 <body>
-    <script src="js/index.js" ></script>
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__search">
+            <i class="fa fa-search search-switch"></i>
+        </div>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="img/blackUntitledLogo.svg" width="100" height="100" alt=""></a>
+            
+        </div>
+        <nav class="offcanvas__menu mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">Home</a></li>
+                <li><a href="#">Languages</a>
+                    <ul class="dropdown">
+                        <li><a href="#">English</a></li>
+                        <li><a href="#">Spanish</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="img/blackUntitledLogo.svg" width="50" height="50" alt=""></a>
+                        Xchel Financial Services
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="header__nav">
+                        <nav class="header__menu">
+                            <ul>
+                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li><a href="#">Languages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Spanish</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero set-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="hero__text">
+                        <h2>With Xchel, find the best monthly payment</h2>
+                        <p>Apply for our personal loan in minutes or investments, without painful</p>
+                        <a href="#" class="primary-btn">Loan</a>
+                        <a href="#" class="primary-btn howit-btn">Investment</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-2">
+                    <div class="hero__form">
+                        <h3>How much do you need?</h3>
+                        <form action="#">
+                            <div class="input-list">
+                                <div class="input-list-item">
+                                    <p>Amount of money ($):</p>
+                                    <input type="text" placeholder="1000">
+                                    <small>Min. $1000MXN</small>
+                                </div>
+                                <div class="input-list-item">
+                                    <p>How long for (month):</p>
+                                    <input type="text" placeholder="24">
+                                    <small>Months: 12 - 24 - 36</small>
+                                </div>
+                            </div>
+                            <div class="input-list last">
+                                <div class="input-list-item">
+                                    <p>First Name:</p>
+                                    <input type="text" placeholder="Jonh">
+                                </div>
+                                <div class="input-list-item">
+                                    <p>Last Name:</p>
+                                    <input type="text" placeholder="Doe">
+                                </div>
+                            </div>
+                            <div class="input-full-width">
+                                <p>Email:</p>
+                                <input type="text" placeholder="john.doe@gmail.com">
+                            </div>
+                            <button type="submit" class="site-btn">Simulate Your Loan Now!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="./index.html"><img src="img/blackUntitledLogo.svg" width="100" height="100" alt=""></a>
+                        </div>
+                        <p>Xchel Financial Services is a trade mark part of the Xchel's Group</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Services</h5>
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="#">Personal Loans</a></li>
+                                <li><a href="#">Investment</a></li>
+                            </ul>
+                        </div>
+                        <h5>Coming Soon</h5>
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="#">Business Loans</a></li>
+                                <li><a href="#">Online Cash Loans</a></li>
+                                <li><a href="#">Crypto Loans</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Socials</h5>
+                        <div class="footer__widget footer__widget--social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i> Instagram</a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                <li><a href="#"><i class="fa fa-skype"></i> Skype</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                    <div class="footer__widget footer__widget--address">
+                        <h5>Open Hours</h5>
+                        <ul>
+                            <li>Monday - Friday: 11:00 am - 8:00 pm</li>
+                            <li>Saturday: 10:00 am - 6:00 pm</li>
+                            <li>Sunday: 11:00 am - 6:00 pm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <script src="js/index.js"></script>
 </body>
+
 </html>
