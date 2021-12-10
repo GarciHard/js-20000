@@ -240,7 +240,6 @@ function contactForm() {
             break
         case NOK:
             return contactMsg
-            break
             default:
                 noValidInput()
                 break
