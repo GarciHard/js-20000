@@ -1,4 +1,4 @@
-/** Clase 4 **/
+/** First Delivery of the Final Project **/
 
 class User {
     constructor(usr, pwd) {
