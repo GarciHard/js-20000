@@ -1,6 +1,5 @@
-import { NO_VALID_INPUT_MSG } from "./utils.js"
+import { INVALID_AMOUNT_MSG, NO_VALID_INPUT_MSG } from "./utils.js"
 
-const INVALID_AMOUNT_MSG = "Monto no válido, intente nuevamente."
 const INVALID_LOAN_PERIOD_MSG = "Plazo no válido, intente nuevamente."
 
 const LOAN_VARIABLE_IVA = .16
@@ -36,17 +35,14 @@ export const validateLoanInput = ( creditAmount, creditTerm ) => {
 
     let validateMsgArr = []
 
-    if ( isNaN(creditAmount) || isNaN(creditTerm) ) {
+    if ( isNaN(creditAmount) || isNaN(creditTerm) )
         validateMsgArr.push(NO_VALID_INPUT_MSG)
-    }
 
-    if ( creditAmount < LOAN_MINIMUM_AMOUNT ) {
+    if ( creditAmount < LOAN_MINIMUM_AMOUNT )
         validateMsgArr.push(INVALID_AMOUNT_MSG)
-    }
 
-    if ( !LOAN_PERIOD_ARR.includes(creditTerm) ) {
+    if ( !LOAN_PERIOD_ARR.includes(creditTerm) )
         validateMsgArr.push(INVALID_LOAN_PERIOD_MSG)
-    }
 
     return validateMsgArr
 }

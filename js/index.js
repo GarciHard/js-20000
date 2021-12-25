@@ -1,11 +1,8 @@
-import { initSimulator } from "./simulator.js";
-import { contactForm } from "./simulatorController.js"
+import { loanButton } from "./loanController.js"
+import { investmentButton } from "./investmentController.js"
 
-/** Clase 5 **/
+/** 2da entrega proyecto final **/
 
-// Considerando un happy path, iniciamos por prompt.
-let option = prompt("¿Desea simular por prompt? (Y/n)").toLowerCase()
-
-if (option === 'y') {
-    initSimulator()
-}
+// Se usará para saber el estado del formulario.
+localStorage.setItem('loanStatus', 'false')
+localStorage.setItem('investmentStatus', 'false')
